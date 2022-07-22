@@ -1,0 +1,61 @@
+
+1. 리눅스 스크립트를 이용 
+ 스크립트로 1분에한번 데이터 업로드하기 
+ 
+//오픈소스 이용
+서버 실행시 minio 같이 실행되도록 구성하기
+111.111.1.247 서버에 포트 88 버킷경로 css 
+
+2. data 경로는 /CSS 로컬경로
+
+3. 서비스 등록해서 자동실행 또는 백그라운드 실행
+
+4. minio (미니오) 데이터 들어오면 파이썬으로 올리기 db에 
+
+5. 그라파나 띄우기
+
+6. 장비사용법
+전원을 꽂으면 서버에 접속하고 데이터를 업로드함
++ 온도 모듈이 CAN데이터를 지속적으로 보냄
+
+7. 람다스크립트로 이벤트 호출 시 -> 그라파나 띄우기
+
+주소
+111.111.1.247:88
+
+백그라운드에서 minio 실행
+sudo ./minio server --address  111.111.1.247:88 /css&
+sudo ./scripts.sh
+버킷 저장 파일 위치 
+cd /css/css/2C4E8905
+
+
+1. 파이썬 함수안 input 값을 변경한다
+2. 5~10분간격으로 파이썬 함수를 실행한다
+
+or
+
+1. s3 폴더안에 .MF4 파일이 들어오면 
+2. 파이썬 함수의 input 값을 바꾼뒤
+3. 실행한다.
+
+
+tail -f /var/log/cron.log
+a 지우기
+a 확인
+cat a.out
+cat /dev/null > a.out
+
+./unittest 
+유닛테스트 작성 : 사진을 옮긴뒤 재자리로 
+
+
+no crontab for root - using an empty one
+
+Select an editor.  To change later, run 'select-editor'.
+  1. /bin/nano        <---- easiest
+  2. /usr/bin/vim.tiny
+  3. /bin/ed
+
+
+
