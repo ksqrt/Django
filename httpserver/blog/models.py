@@ -28,11 +28,9 @@ class FileUpload(models.Model):
     imgfile = models.ImageField(null=True, upload_to="", blank=True)
     content = models.TextField()
 
-    def __str__(self):
-        return self.title
-
 
 class Document(models.Model):
     title = models.CharField(max_length=200)
     uploadedFile = models.FileField(upload_to="result/")
     dateTimeOfUpload = models.DateTimeField(auto_now=True)
+    contents = models.CharField(null=True, default='', max_length=5000)
