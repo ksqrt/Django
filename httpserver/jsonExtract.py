@@ -1,5 +1,6 @@
 import json
 
+
 with open('/home/test/Coding_test/mysite/media/result/test.json') as f:
     data_dic = json.load(f)
 

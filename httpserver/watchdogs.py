@@ -90,5 +90,5 @@ class Watcher:
             self.observer.stop()  # 감시 중단
 
 
-myWatcher = Watcher("/home/test/Coding_test/mysite/media/result")
+myWatcher = Watcher("/home/test/Django/httpserver/media/result")
 myWatcher.run()

@@ -1,0 +1,215 @@
+{
+  "general": {
+    "device": {},
+    "security": {},
+    "debug": {
+      "syslog": 0
+    }
+  },
+  "log": {
+    "file": {
+      "split_size": 50,
+      "split_time_period": 0,
+      "split_time_offset": 0,
+      "cyclic": 1
+    },
+    "compression": {
+      "level": 0
+    },
+    "encryption": {
+      "state": 0
+    },
+    "error_frames": {
+      "state": 0
+    }
+  },
+  "rtc": {
+    "sync": 2,
+    "timezone": 0,
+    "adjustment": 0,
+    "ntp_server": "*.pool.ntp.org",
+    "ntp_fallback": 0,
+    "tolerance": 30
+  },
+  "secondaryport": {
+    "power_schedule": []
+  },
+  "can_1": {
+    "general": {
+      "rx_state": 1,
+      "tx_state": 1
+    },
+    "phy": {
+      "mode": 0,
+      "retransmission": 1,
+      "fd_spec": 0,
+      "bit_rate_cfg_mode": 1,
+      "bit_rate_std": 500000,
+      "bit_rate_fd": 2000000
+    },
+    "filter": {
+      "remote_frames": 1,
+      "id": [
+        {
+          "state": 1,
+          "type": 0,
+          "id_format": 0,
+          "method": 0,
+          "f1": "0",
+          "f2": "7FF",
+          "prescaler_type": 0
+        }
+      ]
+    },
+    "transmit": [
+      {
+        "name": "aqws",
+        "state": 1,
+        "id_format": 0,
+        "frame_format": 0,
+        "brs": 0,
+        "log": 1,
+        "period": 500,
+        "delay": 500,
+        "id": "7E0",
+        "data": "02010C5555555555"
+      }
+    ],
+    "heartbeat": {
+      "state": 0,
+      "id_format": 1,
+      "id": "00435353"
+    },
+    "control": {
+      "control_rx_state": 0,
+      "control_tx_state": 0,
+      "start": {
+        "id_format": 1,
+        "id": "00435354",
+        "id_mask": "1FFFFFFF",
+        "data_mask": "FFFFFFFFFFFFFFFF",
+        "data_high": "0100000000000000",
+        "data_low": "0100000000000000"
+      },
+      "stop": {
+        "id_format": 1,
+        "id": "00435354",
+        "id_mask": "1FFFFFFF",
+        "data_mask": "FFFFFFFFFFFFFFFF",
+        "data_high": "0000000000000000",
+        "data_low": "0000000000000000"
+      }
+    }
+  },
+  "can_2": {
+    "general": {
+      "rx_state": 1,
+      "tx_state": 1
+    },
+    "phy": {
+      "mode": 0,
+      "retransmission": 1,
+      "fd_spec": 0,
+      "bit_rate_cfg_mode": 1,
+      "bit_rate_std": 500000,
+      "bit_rate_fd": 2000000
+    },
+    "filter": {
+      "remote_frames": 1,
+      "id": [
+        {
+          "name": "test",
+          "state": 1,
+          "type": 0,
+          "id_format": 0,
+          "method": 0,
+          "f1": "0",
+          "f2": "7FF",
+          "prescaler_type": 0
+        }
+      ]
+    },
+    "transmit": [
+      {
+        "name": "asd",
+        "state": 1,
+        "id_format": 0,
+        "frame_format": 0,
+        "brs": 0,
+        "log": 0,
+        "period": 100,
+        "delay": 100,
+        "id": "123",
+        "data": "FFFF111122223333"
+      }
+    ],
+    "heartbeat": {
+      "state": 0,
+      "id_format": 1,
+      "id": "00435353"
+    },
+    "control": {
+      "control_rx_state": 0,
+      "control_tx_state": 0,
+      "start": {
+        "id_format": 0,
+        "id": "579",
+        "id_mask": "1FF",
+        "data_mask": "FFFFFFFFFFFFFFFF",
+        "data_high": "0100000000000000",
+        "data_low": "0100000000000000"
+      },
+      "stop": {
+        "id_format": 0,
+        "id": "7FF",
+        "id_mask": "1FF",
+        "data_mask": "FFFFFFFFFFFFFFFF",
+        "data_high": "FFFFFFFFFFFFFFFF",
+        "data_low": "0000000000000000"
+      }
+    }
+  },
+  "lin_1": {
+    "phy": {
+      "mode": 0,
+      "bit_rate": 19200
+    }
+  },
+  "lin_2": {
+    "phy": {
+      "mode": 0,
+      "bit_rate": 19200
+    }
+  },
+  "connect": {
+    "wifi": {
+      "mode": 0,
+      "keyformat": 0,
+      "accesspoint": [
+        {
+          "ssid": "TECHWAYS",
+          "pwd": "techways1!",
+          "minrssi": 0
+        }
+      ]
+    },
+    "s3": {
+      "sync": {
+        "ota": 600,
+        "heartbeat": 300,
+        "logfiles": 1
+      },
+      "server": {
+        "endpoint": "http://111.111.1.247",
+        "port": 88,
+        "bucket": "css",
+        "region": "test",
+        "request_style": 0,
+        "accesskey": "minioadmin",
+        "keyformat": 0,
+        "secretkey": "minioadmin",
+        "signed_payload": 0
+      }
+    }
+  }
+}

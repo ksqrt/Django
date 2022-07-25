@@ -1,11 +1,12 @@
-<div>
-  <h1><a href="/">test</a></h1>
-</div>
+{% block content %}
 
-{% for post in posts %}
-<div>
-  <p>published: {{ post.published_date }}</p>
-  <h1><a href="">{{ post.title }}</a></h1>
-  <p>{{ post.text|linebreaksbr }}</p>
-</div>
-{% endfor %}
+<form method="get">
+  <button class="btn btn-danger">GET</button>
+</form>
+<form method="post">
+  {% csrf_token %}
+  <button class="btn btn-primary">POST</button>
+</form>
+<h2>{{GET}}</h2>
+<h2>{{POST}}</h2>
+{% endblock %}

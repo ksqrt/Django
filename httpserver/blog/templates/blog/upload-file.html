@@ -15,6 +15,7 @@
     <th>Title</th>
     <th>File Path</th>
     <th>Upload Date & Time</th>
+    <th>File Data</th>
   </tr>
 
   {% for file in files %}
@@ -23,6 +24,8 @@
     <td>{{ file.title }}</td>
     <td>{{ file.uploadedFile.url }}</td>
     <td>{{ file.dateTimeOfUpload }}</td>
+    <td>{{ file.contents }}</td>
+    <td></td>
   </tr>
   {% endfor %}
 </table>
