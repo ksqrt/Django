@@ -9,11 +9,11 @@ class myHandler(BaseHTTPRequestHandler):
         # 해당 클래스에 __param변수가 선언되었는지 확인한다.
         if hasattr(self, "_myHandler__param") == False:
             if "/" in self.path:
-                # url의 ?이후의 값을 파싱한다.
+                # url의 /이후의 값을 파싱한다.
                 self.__param = dict(urlparse.parse_qsl(
                     self.path.split("/")[1], True))
             else:
-                # url의 ?가 없으면 빈 딕셔너리를 넣는다.
+                # url의 /가 없으면 빈 딕셔너리를 넣는다.
                 self.__param = {}
         if key in self.__param:
             return self.__param[key]
