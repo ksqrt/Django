@@ -1,0 +1,7 @@
+{
+  "Direction": "REQ",
+  "Command": "TRIG",
+  "TRIGGER_ID": 1,
+  "ID": 1,
+  "ACTION": "START"
+}

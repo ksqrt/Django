@@ -1,6 +1,7 @@
-import time
+from datetime import datetime
 import os
 import json
+
 # fast api 와 uricorn 을 설치해주는 부분
 try:
     import uvicorn
@@ -16,7 +17,8 @@ except ModuleNotFoundError as e:
 # from redorg.routers import saved_items
 
 origins = [
-    'http://localhost:8080',
+    'http://localhost:8000',
+
 ]
 
 
@@ -35,23 +37,23 @@ webapp.add_middleware(
 # -----------------------------------
 
 
-@webapp.get("/")
-def read_root():
+@webapp.get("/log")
+def read_root(req: Request):
     logfile = "fastapi/log.txt"
-    with open(logfile, 'r', encoding='utf-8') as log:
+    with open(logfile, "r")as log:
         return log.read()
+
+
+@webapp.get("/")
+def home():
+    return "server is running"
 
 
 @webapp.post("/")
 async def create_item(req: Request):
     # 리퀘스트 바디데이터 정의
     bodydata = await req.json()
-    # ---------------------로그남기기-----------------
-    log_path = "fastapi/log.txt"
 
-    with open(log_path, 'a', encoding='utf-8') as log:
-        log.write(str(bodydata) + "\n")
-        log.close()
     # ----------------------데이터저장하기-------------
 
     filename = "sample"
@@ -67,15 +69,25 @@ async def create_item(req: Request):
 
     with open(output_path, 'w', encoding='utf-8') as file:
         json.dump(bodydata, file, indent="\t")
+    # ---------------------로그남기기-----------------
+    log_path = "fastapi/log.txt"
+    with open(log_path, 'a', encoding='utf-8') as log:
+        now = datetime.now()
+        nowdate = str(now.year)+"/" + str(now.month)+"/" + str(now.day) + \
+            "/" + str(now.hour)+":" + str(now.minute) + \
+            ":" + str(now.second) + "  "
+        log.write(nowdate+filename+"("+str(uniq-1)+")" +
+                  file_ext+"  "+str(bodydata) + "\n")
+        log.close()
 
         # ----------------------------RES 리턴
-    return bodydata
+    return {"Result": "OK"}
 
 
 #!!!! 맨마지막에 배치할것!!!!
 def serve():
     """Serve the web application."""
-    uvicorn.run(webapp)
+    uvicorn.run(webapp, host="0.0.0.0", port=8000)
 
 
 if __name__ == "__main__":

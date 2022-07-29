@@ -1,0 +1,7 @@
+{
+  "Direction": "REQ",
+  "Command": "CHECK",
+  "STATUS_ID": 4,
+  "ID": 4,
+  "TARGET": "C2X"
+}
