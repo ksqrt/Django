@@ -39,8 +39,8 @@ webapp.add_middleware(
 
 @webapp.get("/log")
 def read_root(req: Request):
-    logfile = "fastapi/log.txt"
-    with open(logfile, "r")as log:
+    logpath = "/home/test/Django/fastapi/log.txt"
+    with open(logpath, "r")as log:
         return log.read()
 
 
@@ -58,7 +58,6 @@ async def create_item(req: Request):
 
     filename = "sample"
     file_ext = ".json"
-    file_path = "fastapi/data/%s%s" % (filename, file_ext)
     uniq = 1
     output_path = 'fastapi/data/%s%s' % (filename, file_ext)
     # 동일한 값 존재시 +1
@@ -87,7 +86,7 @@ async def create_item(req: Request):
 #!!!! 맨마지막에 배치할것!!!!
 def serve():
     """Serve the web application."""
-    uvicorn.run(webapp, host="0.0.0.0", port=8000)
+    uvicorn.run(webapp, host="0.0.0.0", port=8001)
 
 
 if __name__ == "__main__":
