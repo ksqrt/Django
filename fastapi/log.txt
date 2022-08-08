@@ -4,3 +4,5 @@
 2022/8/8/9:52:59  sample(3).json  {'Direction': 'RES', 'Command': 'CHECK', 'CONTENTS': '2424'}
 2022/8/8/11:19:13  sample(4).json  {'Direction': 'RES', 'Command': 'CHECK', 'CONTENTS': '5212541'}
 2022/8/8/11:26:49  sample(5).json  {'Direction': 'RES', 'Command': 'CHECK', 'CONTENTS': '5212541'}
+2022/8/8/14:54:45  sample(6).json  {'Direction': 'REQ', 'Command': 'CHECK', 'CONTENTS': '214214'}
+2022/8/8/14:54:47  sample(7).json  {'Direction': 'REQ', 'Command': 'CHECK', 'CONTENTS': '214214'}

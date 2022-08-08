@@ -302,7 +302,7 @@ def generate_html_response2(val):
     return HTMLResponse(content=html_content, status_code=200)
 
 
-@app.get("/post")
+@app.get("/")
 def read_root(req: Request):
     return generate_html_response2("http://localhost/")
 
@@ -333,9 +333,9 @@ def read_root(req: Request):
         return [i + "<br> "for i in log.readlines()]
 
 
-@app.get("/")
-def home():
-    return "server is running"
+# @app.get("/")
+# def home():
+#     return "server is running"
 
 
 @app.post("/")
