@@ -1,7 +1,0 @@
-{
-	"direction": "REQ",
-	"CommandID": 2,
-	"Command": "TRIG",
-	"TRIGGER_ID": 1,
-	"LOG_ID": 1
-}

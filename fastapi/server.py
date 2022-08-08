@@ -1,34 +1,27 @@
 from datetime import datetime
 import os
 import json
-
-from pydantic import Json
-
 # fast api 와 uricorn 을 설치해주는 부분
 try:
     import uvicorn
     from fastapi import FastAPI, Request
     from fastapi.middleware.cors import CORSMiddleware
     from fastapi.responses import HTMLResponse
+
 except ModuleNotFoundError as e:
     print(e)
     os.system("pip install fastapi")
     os.system("pip install uvicorn[standard]")
 
-
-#  Import A module from my own project that has the routes defined
-# from redorg.routers import saved_items
-
 origins = [
     'http://localhost:8000',
+    "*"
 
 ]
-
-
-webapp = FastAPI()
-# webapp.include_router(saved_items.router)
+app = FastAPI()
+# app.include_router(saved_items.router)
 # 교차출처 리소스 공유
-webapp.add_middleware(
+app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
     allow_credentials=True,
@@ -37,10 +30,43 @@ webapp.add_middleware(
 
 )
 
-# -----------------------------------
-
 
 def generate_html_response(val):
+    html_content = """
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <script>
+      function readTextFile() {
+        var rawFile = new XMLHttpRequest();
+        rawFile.open("GET","""+"\""+val+"\""""", true);
+        rawFile.onreadystatechange = function () {
+          if (rawFile.readyState === 4) {
+            var allText = rawFile.responseText;
+            document.getElementById("Response").innerHTML = allText;
+          }
+        };
+        rawFile.send();
+      }
+      $(document).ready(function () {
+        readTextFile();
+      });
+    </script>
+    <pre id="Response"></pre>
+  </body>
+</html>
+    """
+    return HTMLResponse(content=html_content, status_code=200)
+
+
+def generate_html_response2(val):
     html_content = """
 <!DOCTYPE html>
 <html lang="en">
@@ -91,7 +117,7 @@ def generate_html_response2(val):
         if (cmdid == 1) {
           value = "CHECK";
         } else if (cmdid == 2) {
-          value = "TRIG";
+          value = "TRIGGER";
         } else if (cmdid == 3) {
           value = "LOG";
         } else if (cmdid == 4) {
@@ -131,7 +157,7 @@ def generate_html_response2(val):
           DataDiv.innerHTML +=
             "<input type='text' name='CONTENTS' placeholder='CONTENTS'><br />";
           DataDiv.innerHTML +=
-            "<input type='text' name='L_DESCRIPTION' placeholder='L_DESCRIPTION'><br />";
+            "<input type='text' name='DESCRIPTION' placeholder='DESCRIPTION'><br />";
           DataDiv.innerHTML +=
             "<input type='text' name='COMP_DATA' placeholder='COMP_DATA'><br />";
         } else if (cmdid == 4) {
@@ -145,12 +171,12 @@ def generate_html_response2(val):
           DataDiv.innerHTML +=
             "<input type='text' name='COMMAND' placeholder='COMMAND'><br />";
           DataDiv.innerHTML +=
-            "<input type='text' name='F_DESCRIPTION' placeholder='F_DESCRIPTION'><br />";
+            "<input type='text' name='DESCRIPTION' placeholder='DESCRIPTION'><br />";
         } else if (cmdid == 6) {
           DataDiv.innerHTML =
-            "<input type='text' name='R_STATUS' placeholder='R_STATUS'><br />";
+            "<input type='text' name='STATUS' placeholder='STATUS'><br />";
           DataDiv.innerHTML +=
-            "<input type='text' name='R_DESCRIPTION' placeholder='R_DESCRIPTION'><br />";
+            "<input type='text' name='DESCRIPTION' placeholder='DESCRIPTION'><br />";
         }
 
         //document.form.json.value = JSON.stringify(login);
@@ -243,7 +269,7 @@ def generate_html_response2(val):
             <select onchange="SetCommand()" id="CommandId">
               <option value="0">Select</option>
               <option value="1">1:CHECK</option>
-              <option value="2">2:TRIG</option>
+              <option value="2">2:TRIGGER</option>
               <option value="3">3:LOG</option>
               <option value="4">4:CONFIG</option>
               <option value="5">5:FUNC</option>
@@ -276,47 +302,43 @@ def generate_html_response2(val):
     return HTMLResponse(content=html_content, status_code=200)
 
 
-@webapp.get("/post")
+@app.get("/post")
 def read_root(req: Request):
-    # logpath = "/home/test/Django/fastapi/log.txt"
-    # with open(logpath, "r")as log:
-    return generate_html_response2("http://localhost")
+    return generate_html_response2("http://localhost/")
 
 
-@webapp.get("/log")
+@app.get("/log")
 def read_root(req: Request):
-    # logpath = "/home/test/Django/fastapi/log.txt"
-    # with open(logpath, "r")as log:
     return generate_html_response("log.txt")
 
 
-@webapp.get("/log.txt")
+@app.get("/log.txt")
 def read_root(req: Request):
     logpath = "log.txt"
     with open(logpath, "r")as log:
         return [i + "<br> "for i in log.readlines()]
 
 
-@webapp.get("/reslog")
+@app.get("/reslog")
 def read_root(req: Request):
     # logpath = "/home/test/Django/fastapi/log.txt"
     # with open(logpath, "r")as log:
     return generate_html_response("reslog.txt")
 
 
-@webapp.get("/reslog.txt")
+@app.get("/reslog.txt")
 def read_root(req: Request):
-    logpath = "/home/test/Django/fastapi/reslog.txt"
+    logpath = "reslog.txt"
     with open(logpath, "r")as log:
         return [i + "<br> "for i in log.readlines()]
 
 
-@webapp.get("/")
+@app.get("/")
 def home():
     return "server is running"
 
 
-@webapp.post("/")
+@app.post("/")
 async def create_item(req: Request):
     # 리퀘스트 바디데이터 정의
     bodydata = await req.json()
@@ -359,13 +381,3 @@ async def create_item(req: Request):
 
     # ----------------------------RES 리턴
     return res
-
-
-#!!!! 맨마지막에 배치할것!!!!
-def serve():
-    """Serve the web application."""
-    uvicorn.run(webapp, host="localhost", port=80)
-
-
-if __name__ == "__main__":
-    serve()

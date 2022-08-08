@@ -1,40 +1,6 @@
-2022/7/29/11:3:28  sample(1).json  {'direction': 'REQ', 'CommandID': 2, 'Command': 'TRIG', 'TRIGGER_ID': 1, 'LOG_ID': 1}
-2022/7/29/11:3:33  sample(2).json  {'direction': 'REQ', 'CommandID': 2, 'Command': 'TRIG', 'TRIGGER_ID': 1, 'LOG_ID': 1}
-2022/7/29/11:3:42  sample(3).json  {'direction': 'REQ', 'CommandID': 2, 'Command': 'TRIG', 'TRIGGER_ID': 1, 'LOG_ID': 1}
-2022/7/29/11:9:30  sample(4).json  {'direction': 'REQ', 'CommandID': 2, 'Command': 'TRIG', 'TRIGGER_ID': 1, 'LOG_ID': 1}
-2022/7/29/11:9:40  sample(5).json  {'direction': 'REQ', 'CommandID': 2, 'Command': 'TRIG', 'TRIGGER_ID': 1, 'LOG_ID': 1}
-2022/7/29/11:10:29  sample(6).json  {'direction': 'REQ', 'CommandID': 2, 'Command': 'TRIG', 'TRIGGER_ID': 1, 'LOG_ID': 1}
-2022/7/29/11:13:27  sample(7).json  {'direction': 'REQ', 'CommandID': 2, 'Command': 'TRIG', 'TRIGGER_ID': 1, 'LOG_ID': 1}
-2022/7/29/11:14:20  sample(7).json  {'direction': 'REQ', 'CommandID': 2, 'Command': 'TRIG', 'TRIGGER_ID': 1, 'LOG_ID': 1}
-2022/7/29/11:14:28  sample(8).json  {'direction': 'REQ', 'CommandID': 2, 'Command': 'TRIG', 'TRIGGER_ID': 1, 'LOG_ID': 1}
-2022/7/29/11:21:24  sample(9).json  {'direction': 'REQ', 'CommandID': 2, 'Command': 'TRIG', 'TRIGGER_ID': 1, 'LOG_ID': 1}
-2022/7/29/11:21:40  sample(10).json  {'direction': 'REQ', 'CommandID': 2, 'Command': 'TRIG', 'TRIGGER_ID': 1, 'LOG_ID': 1}
-2022/7/29/11:24:9  sample(11).json  {'direction': 'REQ', 'CommandID': 2, 'Command': 'TRIG', 'TRIGGER_ID': 1, 'LOG_ID': 1}
-2022/7/29/11:24:37  sample(12).json  {'direction': 'REQ', 'Command': 'TRIG', 'TRIGGER_ID': 1, 'LOG_ID': 1}
-2022/7/29/11:25:3  sample(13).json  {'direction': 'REQ', 'Command': 'TRIG', 'TRIGGER_ID': 1, 'LOG_ID': 1}
-2022/7/29/11:29:51  sample(14).json  {'direction': 'REQ', 'Command': 'TRIG', 'TRIGGER_ID': 1, 'LOG_ID': 1}
-2022/7/29/11:39:20  sample(15).json  {'direction': 'REQ', 'CommandID': 2, 'Command': 'TRIG', 'TRIGGER_ID': 1, 'LOG_ID': 1}
-2022/7/29/11:57:26  sample(16).json  {'direction': 'REQ', 'Command': 'TRIG', 'TRIGGER_ID': 1, 'LOG_ID': 1}
-2022/7/29/13:21:5  sample(17).json  {'direction': 'REQ', 'Command': 'TRIG', 'TRIGGER_ID': 1, 'LOG_ID': 1}
-2022/7/29/15:13:10  sample(18).json  {'direction': 'REQ', 'Command': 'TRIG', 'TRIGGER_ID': 1, 'LOG_ID': 1}
-2022/7/29/15:13:27  sample(19).json  {'direction': 'REQ', 'Command': 'TRIG', 'TRIGGER_ID': 1, 'LOG_ID': 1}
-2022/7/29/16:37:53  sample(20).json  {'direction': 'REQ', 'Command': 'TRIG', 'TRIGGER_ID': 1, 'LOG_ID': 1}
-2022/7/29/17:7:14  sample(22).json  {'direction': 'REQ', 'Command': 'TRIG', 'TRIGGER_ID': 1, 'LOG_ID': 1}
-2022/7/29/17:18:56  sample(23).json  {'direction': 'REQ', 'Command': 'TRIG', 'TRIGGER_ID': 1, 'LOG_ID': 1}
-2022/8/1/9:48:59  sample(24).json  {'direction': 'REQ', 'Command': 'TRIG', 'TRIGGER_ID': 1, 'LOG_ID': 1}
-2022/8/4/9:15:18  sample(25).json  {'direction': 'REQ', 'Command': 'TRIG', 'TRIGGER_ID': 1, 'LOG_ID': 1}
-2022/8/4/9:18:44  sample(26).json  {'direction': 'REQ', 'Command': 'TRIG', 'TRIGGER_ID': 1, 'LOG_ID': 1}
-2022/8/4/9:19:27  sample(27).json  {'direction': 'REQ', 'Command': 'TRIG', 'TRIGGER_ID': 1, 'LOG_ID': 1}
-2022/8/4/9:26:22  sample(28).json  {'Direction': 'RES', 'Command': 'TRIG', 'ACTION': '4dg3', 'TPID': '326576'}
-2022/8/4/10:30:3  sample(29).json  {'direction': 'REQ', 'Command': 'TRIG', 'TRIGGER_ID': 1, 'LOG_ID': 1}
-2022/8/4/10:31:44  sample(30).json  {'Direction': 'REQ', 'Command': 'TRIG', 'TRIGGER_ID': 1, 'LOG_ID': 1}
-2022/8/4/13:26:11  sample(31).json  {'Direction': 'REQ', 'Command': 'TRIG', 'TRIGGER_ID': 1, 'LOG_ID': 1}
-2022/8/4/13:26:40  sample(32).json  {'Direction': 'REQ', 'Command': 'TRIG', 'TRIGGER_ID': 1, 'LOG_ID': 1}
-2022/8/4/13:27:4  sample(33).json  {'Direction': 'REQ', 'Command': 'TRIG', 'TRIGGER_ID': 1, 'LOG_ID': 1}
-2022/8/4/13:27:40  sample(34).json  {'Direction': 'RES', 'Command': 'TRIG', 'TRIGGER_ID': 1, 'LOG_ID': 1}
-2022/8/4/13:28:24  sample(35).json  {'Direction': 'RES', 'Command': 'TRIG', 'TRIGGER_ID': 1, 'LOG_ID': 1}
-2022/8/4/13:28:29  sample(36).json  {'Direction': 'RES', 'Command': 'TRIG', 'TRIGGER_ID': 1, 'LOG_ID': 1}
-2022/8/4/13:33:44  sample(37).json  {'Direction': 'REQ', 'Command': '223421'}
-2022/8/4/13:33:58  sample(38).json  {'Direction': 'REQ', 'Command': '223421'}
-2022/8/4/13:36:0  sample(39).json  {'Direction': 'RES', 'Command': 'TRIG', 'ACTION': '3', 'TPID': '2'}
-2022/8/4/13:36:42  sample(40).json  {'Direction': 'RES', 'Command': 'CHECK', 'CONTENTS': '2321412'}
+2022/8/8/9:49:21  sample(0).json  {'Direction': 'RES', 'Command': 'TRIGGER', 'ACTION': '24', 'TPID': 't5w'}
+2022/8/8/9:52:57  sample(1).json  {'Direction': 'RES', 'Command': 'CHECK', 'CONTENTS': '2424'}
+2022/8/8/9:52:57  sample(2).json  {'Direction': 'RES', 'Command': 'CHECK', 'CONTENTS': '2424'}
+2022/8/8/9:52:59  sample(3).json  {'Direction': 'RES', 'Command': 'CHECK', 'CONTENTS': '2424'}
+2022/8/8/11:19:13  sample(4).json  {'Direction': 'RES', 'Command': 'CHECK', 'CONTENTS': '5212541'}
+2022/8/8/11:26:49  sample(5).json  {'Direction': 'RES', 'Command': 'CHECK', 'CONTENTS': '5212541'}
