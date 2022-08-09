@@ -6,3 +6,4 @@
 2022/8/8/11:26:49  sample(5).json  {'Direction': 'RES', 'Command': 'CHECK', 'CONTENTS': '5212541'}
 2022/8/8/14:54:45  sample(6).json  {'Direction': 'REQ', 'Command': 'CHECK', 'CONTENTS': '214214'}
 2022/8/8/14:54:47  sample(7).json  {'Direction': 'REQ', 'Command': 'CHECK', 'CONTENTS': '214214'}
+2022/8/9/9:56:22  sample(8).json  {'Direction': 'REQ', 'Command': 'TRIGGER', 'ACTION': '21421', 'TPID': '{123,432,21}'}

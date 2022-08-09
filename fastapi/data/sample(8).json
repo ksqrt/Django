@@ -1,0 +1,6 @@
+{
+	"Direction": "REQ",
+	"Command": "TRIGGER",
+	"ACTION": "21421",
+	"TPID": "{123,432,21}"
+}
