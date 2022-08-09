@@ -1,9 +1,17 @@
-2022/8/8/9:49:21  sample(0).json  {'Direction': 'RES', 'Command': 'TRIGGER', 'ACTION': '24', 'TPID': 't5w'}
-2022/8/8/9:52:57  sample(1).json  {'Direction': 'RES', 'Command': 'CHECK', 'CONTENTS': '2424'}
-2022/8/8/9:52:57  sample(2).json  {'Direction': 'RES', 'Command': 'CHECK', 'CONTENTS': '2424'}
-2022/8/8/9:52:59  sample(3).json  {'Direction': 'RES', 'Command': 'CHECK', 'CONTENTS': '2424'}
-2022/8/8/11:19:13  sample(4).json  {'Direction': 'RES', 'Command': 'CHECK', 'CONTENTS': '5212541'}
-2022/8/8/11:26:49  sample(5).json  {'Direction': 'RES', 'Command': 'CHECK', 'CONTENTS': '5212541'}
-2022/8/8/14:54:45  sample(6).json  {'Direction': 'REQ', 'Command': 'CHECK', 'CONTENTS': '214214'}
-2022/8/8/14:54:47  sample(7).json  {'Direction': 'REQ', 'Command': 'CHECK', 'CONTENTS': '214214'}
-2022/8/9/9:56:22  sample(8).json  {'Direction': 'REQ', 'Command': 'TRIGGER', 'ACTION': '21421', 'TPID': '{123,432,21}'}
+2022/8/9/17:28:30  sample(0).json  {"Direction": "RES", "Command": "CHECK", "CONTENTS": "42121"}
+2022/8/9/17:39:26  sample(1).json  {"Direction": "RES", "Command": "CHECK", "CONTENTS": "42121"}
+2022/8/9/17:41:49  sample(2).json  {"Direction": "REQ", "Command": "CHECK", "CONTENTS": "12421"}
+2022/8/9/17:42:52  sample(3).json  {
+    "Direction": "REQ",
+    "Command": "CHECK",
+    "CONTENTS": "12421"
+}
+2022/8/9/17:46:52  sample(4).json  {"Direction": "REQ", "Command": "CHECK", "CONTENTS": "12421"}
+2022/8/9/17:48:50  sample(5).json  {"Direction": "REQ", "Command": "CHECK", "CONTENTS": "12421"}
+2022/8/9/17:49:43  sample(6).json  {"Direction": "REQ", "Command": "CHECK", "CONTENTS": "12421"}
+2022/8/9/17:52:7  sample(8).json  {"Direction": "REQ", "Command": "CHECK", "CONTENTS": "12421"}
+2022/8/9/17:52:28  sample(9).json  {"Direction": "REQ", "Command": "CHECK", "CONTENTS": "12421"}
+2022/8/9/17:52:42  sample(10).json  {"Direction": "REQ", "Command": "CHECK", "CONTENTS": "12421"}
+2022/8/9/17:53:30  sample(11).json  {"Direction": "RES", "Command": "CHECK", "CONTENTS": "2142"}
+2022/8/9/17:55:55  sample(12).json  {"Direction": "RES", "Command": "CHECK", "CONTENTS": "2142"}
+2022/8/9/17:56:59  sample(13).json  {"Direction": "RES", "Command": "CHECK", "CONTENTS": "2142"}

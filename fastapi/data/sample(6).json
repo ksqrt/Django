@@ -1,5 +1,1 @@
-{
-	"Direction": "REQ",
-	"Command": "CHECK",
-	"CONTENTS": "214214"
-}
+"{\"Direction\": \"REQ\", \"Command\": \"CHECK\", \"CONTENTS\": \"12421\"}"

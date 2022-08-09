@@ -1,1 +1,7 @@
-{"name": "Foo", "description": "An optional description", "price": 45.2, "tax": 3.5}
+{
+  "univ": [
+    { "professor": "김교수", "student": "이학생" },
+    { "professor": "박교수", "student": "최학생" },
+    { "professor": "한교수", "student": "황학생" }
+  ]
+}

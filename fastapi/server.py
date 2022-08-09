@@ -1,6 +1,8 @@
 from datetime import datetime
 import os
 import json
+from pydoc import doc
+import sys
 # fast api 와 uricorn 을 설치해주는 부분
 try:
     import uvicorn
@@ -302,7 +304,7 @@ def generate_html_response2(val):
 
 @app.get("/")
 def read_root(req: Request):
-    return generate_html_response2("http://localhost/")
+    return generate_html_response2("http://127.0.0.1/")
 
 
 @app.get("/log")
@@ -341,8 +343,8 @@ async def create_item(req: Request):
     # 리퀘스트 바디데이터 정의
     bodydata = await req.json()
 
+    print(bodydata)
     # ----------------------데이터저장하기-------------
-
     filename = "sample"
     file_ext = ".json"
     uniq = 1
@@ -363,7 +365,7 @@ async def create_item(req: Request):
             "/" + str(now.hour)+":" + str(now.minute) + \
             ":" + str(now.second) + "  "
         log.write(nowdate+filename+"("+str(uniq-1)+")" +
-                  file_ext+"  "+str(bodydata) + "\n")
+                  file_ext+"  "+str(bodydata).replace("\'", '"') + "\n")
         log.close()
     # ---------------------res로그 남기기-----------------
     res = {"Direction": "RES", "Command": "RESP",

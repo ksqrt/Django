@@ -1,6 +1,1 @@
-{
-	"Direction": "RES",
-	"Command": "TRIGGER",
-	"ACTION": "24",
-	"TPID": "t5w"
-}
+"{\"Direction\": \"RES\", \"Command\": \"CHECK\", \"CONTENTS\": \"42121\"}"
