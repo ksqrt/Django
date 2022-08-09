@@ -147,7 +147,7 @@ def generate_html_response2(val):
           DataDiv.innerHTML =
             "<input type='text' name='CAT' placeholder='CAT'><br />";
           DataDiv.innerHTML +=
-            "<input type='text' name='SEQUENCE' placeholder='SEQUENCE'><br />";
+            "<input type='text' name='SEQ' placeholder='SEQ'><br />";
           DataDiv.innerHTML +=
             "<input type='text' name='FROM' placeholder='FROM'><br />";
           DataDiv.innerHTML +=
@@ -167,13 +167,11 @@ def generate_html_response2(val):
             "<input type='text' name='PARAMETERS' placeholder='PARAMETERS'><br />";
         } else if (cmdid == 5) {
           DataDiv.innerHTML =
-            "<input type='text' name='TYPE' placeholder='TYPE'><br />";
-          DataDiv.innerHTML +=
-            "<input type='text' name='COMMAND' placeholder='COMMAND'><br />";
-          DataDiv.innerHTML +=
-            "<input type='text' name='DESCRIPTION' placeholder='DESCRIPTION'><br />";
+            "<input type='text' name='FUNCTION' placeholder='FUNCTION'><br />";
         } else if (cmdid == 6) {
           DataDiv.innerHTML =
+            "<input type='text' name='R_COMMAND' placeholder='R_COMMAND'><br />";
+          DataDiv.innerHTML +=
             "<input type='text' name='STATUS' placeholder='STATUS'><br />";
           DataDiv.innerHTML +=
             "<input type='text' name='DESCRIPTION' placeholder='DESCRIPTION'><br />";
