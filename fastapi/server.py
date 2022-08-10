@@ -365,7 +365,7 @@ async def create_item(req: Request):
             "/" + str(now.hour)+":" + str(now.minute) + \
             ":" + str(now.second) + "  "
         log.write(nowdate+filename+"("+str(uniq-1)+")" +
-                  file_ext+"  "+str(bodydata).replace("\'", '"') + "\n")
+                  file_ext+"  "+str(bodydata) + "\n")
         log.close()
     # ---------------------res로그 남기기-----------------
     res = {"Direction": "RES", "Command": "RESP",

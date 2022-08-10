@@ -15,3 +15,6 @@
 2022/8/9/17:53:30  sample(11).json  {"Direction": "RES", "Command": "CHECK", "CONTENTS": "2142"}
 2022/8/9/17:55:55  sample(12).json  {"Direction": "RES", "Command": "CHECK", "CONTENTS": "2142"}
 2022/8/9/17:56:59  sample(13).json  {"Direction": "RES", "Command": "CHECK", "CONTENTS": "2142"}
+2022/8/9/17:59:17  sample(14).json  {'Direction': 'RES', 'Command': 'CHECK', 'CONTENTS': ''}
+2022/8/9/17:59:21  sample(15).json  {'Direction': 'RES', 'Command': 'TRIGGER', 'ACTION': '321', 'TPID': '42141'}
+2022/8/9/18:0:3  sample(16).json  {'Direction': 'RES', 'Command': 'CHECK2', 'CONTENTS': '421421'}
