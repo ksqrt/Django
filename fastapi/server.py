@@ -43,41 +43,7 @@ def generate_html_response(val):
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  </head>
-  <body>
-    <script>
-      function readTextFile() {
-        var rawFile = new XMLHttpRequest();
-        rawFile.open("GET","""+"\""+val+"\""""", true);
-        rawFile.onreadystatechange = function () {
-          if (rawFile.readyState === 4) {
-            var allText = rawFile.responseText;
-            document.getElementById("Response").innerHTML = allText;
-          }
-        };
-        rawFile.send();
-      }
-      $(document).ready(function () {
-        readTextFile();
-      });
-    </script>
-    <pre id="Response"></pre>
-  </body>
-</html>
-    """
-    return HTMLResponse(content=html_content, status_code=200)
-
-
-def generate_html_response2(val):
-    html_content = """
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="function.js"></script>
   </head>
   <body>
     <script>
@@ -109,7 +75,7 @@ def generate_html_response2(val):
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+    <script src="./function.js"></script>
     <script>
       function SetCommand() {
         var cmdid = document.getElementById("CommandId").value;
@@ -211,7 +177,7 @@ def generate_html_response2(val):
           type: "POST",
           url : """+"\""+val+"\""""",
           data: jsonString,
-          dataType: "text",
+          dataType: "json",
           success: function (result) {
             console.log("ok");
             $("log").html(Response);
@@ -231,7 +197,7 @@ def generate_html_response2(val):
         rawFile.onreadystatechange = function () {
           if (rawFile.readyState === 4) {
             var allText = rawFile.responseText;
-            document.getElementById("Response").innerHTML = allText;
+            setPretext(allText);  
           }
         };
         rawFile.send();
@@ -242,7 +208,7 @@ def generate_html_response2(val):
     </script>
   </head>
   <body>
-    <!-- <br /><br /><br /> -->
+    <br /><br /><br />
     <!-- 
     1. 서버 시간 로그저장 서버로 접속시 저장된 로그 출력<br />
     2. 서버 가동방법 <br />
@@ -297,14 +263,13 @@ def generate_html_response2(val):
     <pre id="Response"></pre>
   </body>
 </html>
-
     """
     return HTMLResponse(content=html_content, status_code=200)
 
 
 @app.get("/")
 def read_root(req: Request):
-    return generate_html_response2("http://127.0.0.1/")
+    return generate_html_response2("http://100.100.100.1/")
 
 
 @app.get("/log")
@@ -314,9 +279,12 @@ def read_root(req: Request):
 
 @app.get("/log.txt")
 def read_root(req: Request):
-    logpath = "log.txt"
+    logpath = "./log.txt"
     with open(logpath, "r")as log:
-        return [i + "<br> "for i in log.readlines()]
+        lines = log.readline().strip()
+        print(lines)
+        return lines
+        # return (i.strip() for i in log.readlines())
 
 
 @app.get("/reslog")
@@ -330,7 +298,8 @@ def read_root(req: Request):
 def read_root(req: Request):
     logpath = "reslog.txt"
     with open(logpath, "r")as log:
-        return [i + "<br> "for i in log.readlines()]
+        lines = log.readlines()
+        return [i + "<br> " for i in lines.split("\n")[0]]
 
 
 # @app.get("/")
@@ -342,6 +311,8 @@ def read_root(req: Request):
 async def create_item(req: Request):
     # 리퀘스트 바디데이터 정의
     bodydata = await req.json()
+    # 따옴표 => 쌍따옴표 변환 코드입니다
+    # bodydata = json.dumps(bodydata)
 
     print(bodydata)
     # ----------------------데이터저장하기-------------
@@ -365,7 +336,7 @@ async def create_item(req: Request):
             "/" + str(now.hour)+":" + str(now.minute) + \
             ":" + str(now.second) + "  "
         log.write(nowdate+filename+"("+str(uniq-1)+")" +
-                  file_ext+"  "+str(bodydata) + "\n")
+                  file_ext+"  "+str(bodydata).replace("'", '"') + "\n")
         log.close()
     # ---------------------res로그 남기기-----------------
     res = {"Direction": "RES", "Command": "RESP",
