@@ -1,0 +1,4 @@
+pkill -9 python3 server.py
+pkill -9 python3 -m http.server 81
+python3 server.py &
+python3 -m http.server 81 & 

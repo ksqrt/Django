@@ -1,0 +1,195 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+      function SetCommand() {
+        var cmdid = document.getElementById("CommandId").value;
+        var cmdform = document.getElementById("Command");
+        var value = "";
+
+        if (cmdid == 1) {
+          value = "CHECK";
+        } else if (cmdid == 2) {
+          value = "TRIG";
+        } else if (cmdid == 3) {
+          value = "LOG";
+        } else if (cmdid == 4) {
+          value = "CONFIG";
+        } else if (cmdid == 5) {
+          value = "FUNC";
+        } else if (cmdid == 6) {
+          value = "RESP";
+        }
+
+        cmdform.value = value;
+
+        SetDataSelectBox(cmdid);
+      }
+
+      function SetDataSelectBox(cmdid) {
+        var DataDiv = document.getElementById("DATADIV");
+        if (cmdid == 1) {
+          DataDiv.innerHTML =
+            "<input type='text' name='CONTENTS' placeholder='CONTENTS'><br />";
+        } else if (cmdid == 2) {
+          DataDiv.innerHTML =
+            "<input type='text' name='ACTION' placeholder='ACTION'><br />";
+          DataDiv.innerHTML +=
+            "<input type='text' name='TPID' placeholder='TPID'><br />";
+        } else if (cmdid == 3) {
+          DataDiv.innerHTML =
+            "<input type='text' name='CAT' placeholder='CAT'><br />";
+          DataDiv.innerHTML +=
+            "<input type='text' name='SEQUENCE' placeholder='SEQUENCE'><br />";
+          DataDiv.innerHTML +=
+            "<input type='text' name='FROM' placeholder='FROM'><br />";
+          DataDiv.innerHTML +=
+            "<input type='text' name='TO' placeholder='TO'><br />";
+          DataDiv.innerHTML +=
+            "<input type='text' name='MEDIUM' placeholder='MEDIUM'><br />";
+          DataDiv.innerHTML +=
+            "<input type='text' name='CONTENTS' placeholder='CONTENTS'><br />";
+          DataDiv.innerHTML +=
+            "<input type='text' name='L_DESCRIPTION' placeholder='L_DESCRIPTION'><br />";
+          DataDiv.innerHTML +=
+            "<input type='text' name='COMP_DATA' placeholder='COMP_DATA'><br />";
+        } else if (cmdid == 4) {
+          DataDiv.innerHTML =
+            "<input type='text' name='METHOD' placeholder='METHOD'><br />";
+          DataDiv.innerHTML +=
+            "<input type='text' name='PARAMETERS' placeholder='PARAMETERS'><br />";
+        } else if (cmdid == 5) {
+          DataDiv.innerHTML =
+            "<input type='text' name='TYPE' placeholder='TYPE'><br />";
+          DataDiv.innerHTML +=
+            "<input type='text' name='COMMAND' placeholder='COMMAND'><br />";
+          DataDiv.innerHTML +=
+            "<input type='text' name='F_DESCRIPTION' placeholder='F_DESCRIPTION'><br />";
+        } else if (cmdid == 6) {
+          DataDiv.innerHTML =
+            "<input type='text' name='R_STATUS' placeholder='R_STATUS'><br />";
+          DataDiv.innerHTML +=
+            "<input type='text' name='R_DESCRIPTION' placeholder='R_DESCRIPTION'><br />";
+        }
+
+        //document.form.json.value = JSON.stringify(login);
+      }
+
+      function CheckForm() {
+        thisform = document.getElementById("SendForm");
+        if (thisform.Direction.value == "") {
+          thisform.Direction.focus();
+        } else if (
+          thisform.CommandId.value == "선택하세요" ||
+          thisform.CommandId.value == ""
+        ) {
+          thisform.CommandId.focus();
+        } else if (thisform.Command.value == "") {
+          thisform.Command.focus();
+        } else {
+          thisform.submit();
+        }
+      }
+      function CheckFormRes() {
+        var formSerializeArray = $("#SendForm").serializeArray();
+        var object = {};
+        for (var i = 0; i < formSerializeArray.length; i++) {
+          object[formSerializeArray[i]["name"]] =
+            formSerializeArray[i]["value"];
+        }
+        var jsonString = JSON.stringify(object);
+        //var queryString = $("#SendForm").serialize();
+        //var jsonString = JSON.stringify(queryString);
+        $.ajax({
+          type: "POST",
+          url: "http://100.100.100.1",
+          // url: "http://111.111.1.247",
+          data: jsonString,
+          dataType: "text",
+          success: function (result) {
+            console.log("ok");
+            $("log").html(Response);
+            readTextFile();
+          },
+          error: function (xhr, status, error) {
+            console.log("error");
+            $("log").html(error);
+            readTextFile();
+          },
+        });
+      }
+
+      function readTextFile() {
+        var rawFile = new XMLHttpRequest();
+        rawFile.open("GET", "log.txt", true);
+        rawFile.onreadystatechange = function () {
+          if (rawFile.readyState === 4) {
+            var allText = rawFile.responseText;
+            document.getElementById("Response").innerHTML = allText;
+          }
+        };
+        rawFile.send();
+      }
+      $(document).ready(function () {
+        readTextFile();
+      });
+    </script>
+  </head>
+  <body>
+    <!-- <br /><br /><br /> -->
+    <!-- 
+    1. 서버 시간 로그저장 서버로 접속시 저장된 로그 출력<br />
+    2. 서버 가동방법 <br />
+    Receive : sudo python3 server.py<br />
+    Send : sudo python3 -m http.server PortNUM<br />
+    3. http 폼 수정<br /> -->
+    <!-- <br /><br /><br /><br /><br /><br /> -->
+    <form action="http://111.111.1.247" method="post" id="SendForm">
+      <table>
+        <tr>
+          <td>Direction</td>
+          `
+          <td>
+            <select name="Direction" id="Direction">
+              <option value="REQ">Request</option>
+              <option value="RES">Response</option>
+            </select>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Command ID</td>
+          <td>
+            <select onchange="SetCommand()" id="CommandId">
+              <option value="0">Select</option>
+              <option value="1">1:CHECK</option>
+              <option value="2">2:TRIG</option>
+              <option value="3">3:LOG</option>
+              <option value="4">4:CONFIG</option>
+              <option value="5">5:FUNC</option>
+              <option value="6">6:RESP</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>Command</td>
+          <td><input type="text" name="Command" id="Command" /></td>
+        </tr>
+        <tr>
+          <td>Data</td>
+          <td><div id="DATADIV"></div></td>
+        </tr>
+        <tr>
+          <td>
+            <input type="button" value="submit_res" onclick="CheckFormRes();" />
+            <input type="button" value="Refresh" onclick="readTextFile();" />
+          </td>
+        </tr>
+      </table>
+    </form>
+    <div id="log"></div>
+    <pre id="Response"></pre>
+  </body>
+</html>

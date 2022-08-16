@@ -1,0 +1,24 @@
+2022/8/2/11:33:13    {'Direction': 'REQ', 'Command': '123'}
+2022/8/2/11:33:21    {'Direction': 'REQ', 'Command': '6547'}
+2022/8/2/11:33:23    {'Direction': 'REQ', 'Command': '6547'}
+2022/8/2/11:33:27    {'Direction': 'REQ', 'Command': '6547'}
+2022/8/2/11:33:28    {'Direction': 'REQ', 'Command': '6547'}
+2022/8/2/11:33:29    {'Direction': 'REQ', 'Command': '6547'}
+2022/8/3/14:4:6    {'Direction': 'RES', 'Command': 'CHECK', 'CONTENTS': 'sdwa'}
+2022/8/3/14:4:58    {'Direction': 'RES', 'Command': 'TRIG', 'ACTION': '3241', 'TPID': 'e'}
+2022/8/3/14:14:22    {'Direction': 'RES', 'Command': 'TRIG', 'ACTION': '3241', 'TPID': 'e'}
+2022/8/3/14:14:28    {'Direction': 'RES', 'Command': 'TRIG', 'ACTION': '3241', 'TPID': 'e223'}
+2022/8/8/9:42:37    {'Direction': 'RES', 'Command': 'CHECK', 'CONTENTS': '2132412'}
+2022/8/8/9:43:36    {'Direction': 'RES', 'Command': 'CHECK', 'CONTENTS': '2132412'}
+2022/8/8/9:43:40    {'Direction': 'RES', 'Command': 'CHECK', 'CONTENTS': '2132412214'}
+2022/8/8/9:44:3    {'Direction': 'REQ', 'Command': 'CHECK', 'CONTENTS': '213132'}
+2022/8/8/9:44:13    {'Direction': 'REQ', 'Command': 'CHECK', 'CONTENTS': '213132'}
+2022/8/8/9:44:14    {'Direction': 'REQ', 'Command': 'CHECK', 'CONTENTS': '213132'}
+2022/8/8/9:44:15    {'Direction': 'REQ', 'Command': 'CHECK', 'CONTENTS': '213132'}
+2022/8/11/16:47:50    b'{"Direction":"REQ","Command":"CHECK","CONTENTS":"123"}'
+2022/8/11/16:48:42    b'{"Direction":"REQ","Command":"123123"}'
+2022/8/11/16:50:6    {"Direction":"REQ","Command":"123"}
+2022/8/11/16:50:8    {"Direction":"REQ","Command":"123"}
+2022/8/11/16:50:9    {"Direction":"REQ","Command":"123"}
+2022/8/11/16:50:9    {"Direction":"REQ","Command":"123"}
+2022/8/11/16:50:9    {"Direction":"REQ","Command":"123"}
