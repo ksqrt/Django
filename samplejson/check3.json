@@ -1,7 +1,0 @@
-{
-  "Direction": "REQ",
-  "Command": "CHECK",
-  "STATUS_ID": 3,
-  "ID": 3,
-  "TARGET": "TIME SYNC"
-}

@@ -1,7 +1,0 @@
-{
-  "Direction": "REQ",
-  "Command": "TRIG",
-  "TRIGGER_ID": 2,
-  "ID": 2,
-  "ACTION": "STOP"
-}

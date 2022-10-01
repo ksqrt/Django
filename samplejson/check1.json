@@ -1,7 +1,0 @@
-{
-  "Direction": "REQ",
-  "Command": "CHECK",
-  "STATUS_ID": 1,
-  "ID": 1,
-  "TARGET": "CONNECTION"
-}

@@ -1,7 +1,0 @@
-{
-  "Direction": "REQ",
-  "Command": "CHECK",
-  "STATUS_ID": 2,
-  "ID": 2,
-  "TARGET": "GNSS"
-}
